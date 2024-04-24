@@ -24,7 +24,7 @@ pipeline {
             }
             steps {
                 echo('Start Build')
-                echo "Hello ${params.PERSON}"
+                echo "Hello ${params.AUTHOR}"
                 echo "Biography: ${params.BIOGRAPHY}"
                 echo "Toggle: ${params.TOGGLE}"
                 echo "Choice: ${params.CHOICE}"
