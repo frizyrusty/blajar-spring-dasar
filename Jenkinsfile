@@ -9,7 +9,7 @@ pipeline {
                     sleep(10)
                     sh './mvnw clean'
                     sh './mvnw compile test-compile'
-                    echo('Finish Build)
+                    echo('Finish Build')
                 } catch (err) {
                     echo "Caught: ${err}"
                     currentBuild.result = 'FAILURE'
@@ -21,14 +21,14 @@ pipeline {
                 echo('Start Test')
                 sleep(5)
                 sh './mvnw test'
-                echo('Finish Test)
+                echo('Finish Test')
             }
         }
         stage('Deploy') {
             steps {
                 echo('Start Deploy')
                 sleep(5)
-                echo('Finish Deploy)
+                echo('Finish Deploy')
             }
         }
     }
