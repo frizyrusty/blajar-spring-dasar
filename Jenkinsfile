@@ -4,18 +4,11 @@ pipeline {
     stages {
         stage('Build') {
             steps {
-                node {
-                    try {
-                        echo('Start Build')
-                        sleep(10)
-                        sh './mvnw clean'
-                        sh './mvnw compile test-compile'
-                        echo('Finish Build')
-                    } catch (err) {
-                        echo "Caught: ${err}"
-                        currentBuild.result = 'FAILURE'
-                    }
-                 }
+                echo('Start Build')
+                sleep(10)
+                sh './mvnw clean'
+                sh './mvnw compile test-compile'
+                echo('Finish Build')
             }
         }
         stage('Test') {
