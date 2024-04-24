@@ -22,9 +22,17 @@ pipeline {
             options {
                 timeout(time: 3, unit: 'MINUTES') 
             }
+            input {
+                message "Should we continue?"
+                ok "Yes, we should."
+                submitter "alice,bob"
+                parameters {
+                    string(name: 'PERSON', defaultValue: 'R. Farizd', description: 'Who should I say hello to?')
+                }
+            }
             steps {
                 echo('Start Build')
-                echo "Hello ${params.AUTHOR}"
+                echo "Hello ${PERSON}"
                 echo "Biography: ${params.BIOGRAPHY}"
                 echo "Toggle: ${params.TOGGLE}"
                 echo "Choice: ${params.CHOICE}"
